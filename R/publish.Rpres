@@ -17,7 +17,7 @@ library(ggthemes)
 
 # Read .csv files in directory
   files <- list.files()
-  files <- files[grepl(".csv$", files)][1:5]
+  files <- files[grepl(".csv$", files)][1:10]
 # Define values to be used in plot_data()
   my_font <- "sans"
 
@@ -25,12 +25,19 @@ library(ggthemes)
   for (i in seq_along(files)) {
     # Read file
     df <- read.csv(files[i], header = TRUE, stringsAsFactors = FALSE)
-    # Plot file
-    p <- plot_data(df)
+    
     
     cat(paste(toupper(unique(df$state)), "\n"))  # Insert slide title
     cat("==============================================") # Insert slide separator
+    cat("\nleft: 40%\n") # Control slide's left column width
     
+    # Insert summary statistics in the slide's left column
+    analyze_data(df)
+    
+    cat("\n***\n") # Column separator
+    
+    # Plot file
+    p <- plot_data(df)
     print(p)
   
     cat("\n") # Insert line break

@@ -13,9 +13,6 @@ plot_data_files <- function(path_in = "./", path_out = "./") {
   files <- list.files(path_in)
   files <- files[grepl(".csv$", files)] 
   
-  # Define values to be used in plot_data()
-  my_font <- "sans"
-  
   for (i in seq_along(files)) {
     # Read file
     df <- read.csv(paste0(path_in, files[i]), header = TRUE, stringsAsFactors = FALSE)

@@ -3,11 +3,15 @@
 #' @param data A data frame.
 #' @export
 #' @noRd
+#' @import ggplot2 ggthemes
 
 plot_data <- function(df) {
   # Reshape df
-  df <- melt(df, id = "state")
+  df <- reshape2::melt(df, id = "state")
   names(df) <- c('state', 'prepost', 'score')
+  
+  # Specify font
+  my_font <- "sans"
   
   # Create title
   my_state <- toupper(unique(df$state))
