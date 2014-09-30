@@ -9,7 +9,7 @@
 #' create_data()
 #' list.files()
 
-create_data <- function(size = 1000, seed = NULL, path = NULL) {
+create_data <- function(path = NULL, size = 1000, seed = NULL) {
   if(!is.null(seed)) {set.seed(seed)}
   
   # Generate different means for pre / post scores, for each state
@@ -33,7 +33,7 @@ create_data <- function(size = 1000, seed = NULL, path = NULL) {
     df <- data.frame(state = state, pre = pre, post = post)
     # save df as a .csv file
     write.csv(df, file = paste0(path, state[i], '.csv'), row.names = FALSE)
-    Sys.sleep(.5)
+    Sys.sleep(.4)
     
   }
 }

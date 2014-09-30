@@ -9,4 +9,6 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Imports:
     truncnorm,
-    ggplot2
+    ggplot2,
+    reshape2,
+    ggthemes

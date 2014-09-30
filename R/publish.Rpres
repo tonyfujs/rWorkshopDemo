@@ -1,0 +1,38 @@
+R Workshop demo
+========================================================
+author: Tony Fujs
+transition: rotate
+transition-speed: slow
+css: ./theme/default.css
+width: 1200
+height: 800
+
+
+```{r echo = F, fig.width = 14, fig.height = 9,  results='asis', warning=FALSE}
+### The rest of the slide deck is generated programmatically using a simple for loop
+library(rWorkshopDemo) # Load rWorkshopDemo package
+library(reshape2)
+library(ggplot2)
+library(ggthemes)
+
+# Read .csv files in directory
+  files <- list.files()
+  files <- files[grepl(".csv$", files)][1:5]
+# Define values to be used in plot_data()
+  my_font <- "sans"
+
+### Create one slide of summary stats for each Species in "data"
+  for (i in seq_along(files)) {
+    # Read file
+    df <- read.csv(files[i], header = TRUE, stringsAsFactors = FALSE)
+    # Plot file
+    p <- plot_data(df)
+    
+    cat(paste(toupper(unique(df$state)), "\n"))  # Insert slide title
+    cat("==============================================") # Insert slide separator
+    
+    print(p)
+  
+    cat("\n") # Insert line break
+    }
+```

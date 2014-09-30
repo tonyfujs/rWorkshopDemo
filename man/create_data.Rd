@@ -3,7 +3,7 @@
 \alias{create_data}
 \title{Generate random toy datasets for each US state}
 \usage{
-create_data(size = 1000, seed = NULL, path = NULL)
+create_data(path = NULL, size = 1000, seed = NULL)
 }
 \arguments{
 \item{data}{A data frame.}
